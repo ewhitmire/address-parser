@@ -2,7 +2,8 @@ import pandas as pd
 import usaddress
 import os
 from collections import OrderedDict
-from tkinter.filedialog import askopenfilename
+import Tkinter as tk
+import tkFileDialog
 import argparse
 
 
@@ -48,7 +49,7 @@ def run():
     if args.file is not None:
         excel_file = args.file
     else:
-        excel_file = askopenfilename()
+        excel_file = tkFileDialog.askopenfilename()
 
     (base, ext) = os.path.splitext(os.path.basename(excel_file))
     excel_file_out = os.path.join(os.path.dirname(excel_file), base + "_parsed" + ext)
